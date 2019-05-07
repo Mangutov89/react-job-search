@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 
 module.exports = {
@@ -72,11 +73,12 @@ module.exports = {
 
 
     plugins: [
+        new Dotenv(), 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
           template:'template.ejs',
-          appMountId: 'react-app-root',
+          appMountId: 'Job Search',
           title: 'React Help Queue',
           filename: resolve(__dirname, "build", "index.html"),
         }),
