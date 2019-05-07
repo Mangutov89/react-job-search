@@ -21,6 +21,7 @@ class SearchPage extends React.Component {
     try {
       const response = await fetch(`https://api.adzuna.com:443/v1/api/jobs/us/search/1?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}&what=${searchTerm}`);
       json = await response.json();
+      console.log(json)
       for (var i = 0; i <= 9; i ++) {
         const company = json.results[i].company.display_name;
         const title = json.results[i].title;

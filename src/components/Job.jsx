@@ -5,7 +5,7 @@ import PropTypes from'prop-types';
 
 
 function Job(props){
-  const title=props.title.replace('<strong>', '').replace('</strong>', '');
+  const title=props.title.replace(/<strong>/g, '').replace(/<\/strong>/g, '');
   const description=props.description.replace(/<strong>/g, '').replace(/<\/strong>/g, '');
   const job = {company: props.company,
     title: title,
