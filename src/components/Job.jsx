@@ -21,9 +21,9 @@ function Job(props){
       <h3>{props.location}</h3>
       <a href={props.website}>click here to check out posting</a>
       <button onClick={ e => {
-                  e.preventDefault();
-                  props.dispatch(saveJob(job))} 
-                  }>Save this Job</button>
+        e.preventDefault();
+        props.dispatch(saveJob(job));} 
+      }>Save this Job</button>
     </div>
   );
 }
