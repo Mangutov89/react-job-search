@@ -6,16 +6,17 @@ import { HashRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
 
-// const store = createStore(reducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <HashRouter>
-        {/* <Provider store={store}> */}
+        <Provider store={store}>
           <Component/>
-        {/* </Provider> */}
+        </Provider>
       </HashRouter>
     </AppContainer>,
     document.getElementById('react-app-root')

@@ -1,6 +1,6 @@
 
 
-export const initailState = {
+export const initialState = {
   currentJobId: 1,
   jobsById: {
     1: {

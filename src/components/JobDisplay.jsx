@@ -7,19 +7,19 @@ function JobDisplay(props) {
     <div>
       {props.jobList.map((job, index) => 
         <Job title={job.title} 
-        company={job.company} 
-        description={job.description}
-        location={job.location}
-        website={job.website}
-        id={job.id}
-        key={index} />
+          company={job.company} 
+          description={job.description}
+          location={job.location}
+          website={job.website}
+          id={job.id}
+          key={index} />
       )}
     </div>
-  )
+  );
 }
 
 JobDisplay.propTypes = {
   jobList: PropTypes.array
-}
+};
 
 export default JobDisplay;

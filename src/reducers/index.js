@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import jobChangeReducer from './jobChangeReducer';
+import jobSaveReducer from './jobSaveReducer';
 
 const rootReducer = combineReducers({
-  currentJobId: jobChangeReducer
-})
+  jobsById: jobSaveReducer
+});
 
 export default rootReducer;
