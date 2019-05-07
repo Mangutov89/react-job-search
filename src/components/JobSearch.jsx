@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function JobSearch() {
+function JobSearch(props) {
   let input;
   return(
     <div>
@@ -10,7 +10,7 @@ function JobSearch() {
         if (!input.value.trim()) {
           return;
         }
-        console.log('searched title', input.value.trim());
+        props.onGetJobsFromAPI(input.value.trim());
         input.value = '';
       }}>
         <input placeholder="job search" ref={node => {
