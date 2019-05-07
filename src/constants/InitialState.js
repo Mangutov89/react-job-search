@@ -6,8 +6,10 @@ export const initialState = {
     1: {
       title: 'there will be jobs',
       company: 'Company',
-      desciption: 'a descriiption',
-      location: 'Portland'
+      description: 'a description',
+      location: 'Portland',
+      website: 'www.website.com',
+      id: 1
     }
   }
 };
