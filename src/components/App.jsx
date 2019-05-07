@@ -11,8 +11,10 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path='/' component={SearchPage} />
+        
         <Route component={Error404} />
       </Switch>
+
     </div>
   );
 }

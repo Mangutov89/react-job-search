@@ -12,29 +12,23 @@ class SearchPage extends React.Component {
     }
     this.handleGetJobsFromAPI = this.handleGetJobsFromAPI.bind(this);
   }
-  componentDidMount(){
-    console.log("state", this.state.searchJobList)
-  }
+
 
   async handleGetJobsFromAPI(searchTerm) {
-    console.log("starter state", this.state.searchJobList);
     searchTerm = searchTerm.replace(' ', '_');
     let json;
-    let newState;
     let jobList = [...this.state.searchJobList]
     try {
       const response = await fetch(`https://api.adzuna.com:443/v1/api/jobs/us/search/1?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}&what=${searchTerm}`);
       json = await response.json();
-      console.log(json);
-      console.log("jobList", jobList);
       for (var i = 0; i <= 9; i ++) {
         const company = json.results[i].company.display_name;
         const title = json.results[i].title;
         const description = json.results[i].description;
         const location = json.results[i].location.display_name;
         const id = json.results[i].id;
-        jobList.push({company, title, location, description, id})
-        console.log(newState)
+        const website = json.results[i].redirect_url
+        jobList.push({company, title, location, description, id, website})
       }
     }
     catch(e) {
@@ -47,8 +41,8 @@ class SearchPage extends React.Component {
   render() {
     return(
       <div>
-        <JobSearch onGetJobsFromAPI={this.handleGetJobsFromAPI}></JobSearch>
-        <JobDisplay></JobDisplay>
+        <JobSearch onGetJobsFromAPI={this.handleGetJobsFromAPI}/>
+        <JobDisplay jobList= {this.state.searchJobList}/>
       </div>
   
     );
